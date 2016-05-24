@@ -36,12 +36,19 @@ endif
 
 " If using a dark background within the editing area and syntax highlighting
 " turn on this option as well
-"set background=dark
+
+set t_Co=256
+colorscheme badwolf
+
+set cursorline
+set laststatus=2
+
 
 " Uncomment the following to have Vim jump to the last position when
 " reopening a file
 if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+  autocmd CompleteDone * pclose "automatically closes preview window
 endif
 
 " Uncomment the following to have Vim load indentation rules and plugins
@@ -86,10 +93,15 @@ set scrolloff=5
 nnoremap j gj
 nnoremap k gk
 
+" Ctrl-j and Ctrl-k scrolls the screen
 nnoremap <C-J> <C-E>j
 nnoremap <C-K> <C-Y>k
+
 " let \[enter] insert space without intering insert mode
 nnoremap <leader><cr> i<cr><Esc>
+
+" F5 automatically saves and runs current python script
+nnoremap <silent> <F5> :!clear;python %<CR>
 
 " Source a global configuration file if available
 if filereadable("/etc/vim/vimrc.local")

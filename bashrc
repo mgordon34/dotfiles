@@ -117,4 +117,4 @@ fi
 alias intellij="idea.sh &"
 
 export JAVA_HOME=/usr/lib/jvm/java-7-oracle
-export IDEA_JDK=/usr/lib/jvm/java-8-oracle
+export IDEA_JDK=/usr/lib/jvm/java-7-oracle
